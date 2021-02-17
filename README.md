@@ -89,14 +89,22 @@ $SPARK_HOME/sbin/start-slaves.sh spark://s01:7077
 
 9. You are ready to execute your app! Execute this command on the master
 ```
-/opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit --master spark://s01:7077  --executor-cores 2 --executor-memory 14g yourfile.py
+/opt/spark-3.0.1-bin-hadoop2.7/bin/spark-submit --master spark://s01:7077  --executor-cores 2 --executor-memory 2g yourfile.py
 ```
-
+Based on what machine you chose you will be able to change the number of cores used and the amount of ram memory allocated for the tasks. If you would like to use a dataset different from the ENGB pay attention from the output of this command; if you get this warn message:
+```
+WARN scheduler.TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+```
+That means that you have allocated an insufficient amount of resources or others task have a lock on them. You can check the jobs being executed with the spark UI at the following link:
+```
+<PUBLIC DNS OF YOUR MASTER NODE>:8080
+```
 10. Remember to do `terraform destroy` to delete your EC2 instances
 
 **Note:** The steps from 0 to 5 (included) are needed only on the first execution ever
 
 
 ## See also
- * [TransE PySpark](https://github.com/conema/TransE-pyspark): an application using this project
+ * [GraphComparison PySpark](https://github.com/giacoballoccu/GraphComparison): an application using this project
+ * [TransE PySpark](https://github.com/conema/TransE-pyspark): the first application using this project
  * [hadoop-spark-cluster-deployment](https://github.com/kostistsaprailis/hadoop-spark-cluster-deployment): the starting point of this project
