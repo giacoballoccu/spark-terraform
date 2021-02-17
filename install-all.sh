@@ -223,4 +223,3 @@ echo '$SPARK_HOME/sbin/start-master.sh' > /home/ubuntu/spark-start-master.sh
 
 echo '$SPARK_HOME/sbin/start-slave.sh spark://s01:7077' > /home/ubuntu/spark-start-slave.sh
 
-cp app/Jars/graphframes-0.8.1-spark3.0-s_2.12.jar /opt/spark-3.0.1-bin-hadoop2.7/jars/graphframes-0.8.1-spark3.0-s_2.12.jar
