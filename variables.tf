@@ -20,7 +20,7 @@ variable "token" {
 
 variable "instance_type" {
     type = string
-    default = "m5.xlarge"               # change instance type if needed
+    default = "t2.xlarge"               # change instance type if needed
 }
 
 variable "ami_image" {
@@ -60,12 +60,14 @@ variable "datanode_count" {
 
 variable "ips" {
     default = {
-        "0" = "172.31.0.102"
-        "1" = "172.31.0.103"
-        "2" = "172.31.0.104"
-        "3" = "172.31.0.105"
-        "4" = "172.31.0.106"
-        "5" = "172.31.0.107"
+        "0" = "172.31.80.102"
+        "1" = "172.31.80.103"
+        "2" = "172.31.80.104"
+        "3" = "172.31.80.105"
+        "4" = "172.31.80.106"
+        "5" = "172.31.80.107"
+        "6" = "172.31.80.108"
+        "7" = "172.31.80.109"
     }
 }
 
@@ -77,5 +79,7 @@ variable "hostnames" {
         "3" = "s05"
         "4" = "s06"
         "5" = "s07"
+        "6" = "s08"
+        "7" = "s09"
     }
 }
