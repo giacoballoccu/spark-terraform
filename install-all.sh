@@ -13,16 +13,22 @@ sudo apt-get -y install python3
 sudo apt-get -y install python3-pip
 pip3 install findspark
 pip3 install numpy
+pip3 install csv
+pip3 install graphframes
+pip3 install pandas
+import pyspark
 sudo apt-get -y install openjdk-8-jdk
 
 # master and slaves ip (you can add more if needed)
 echo '
-172.31.0.101 s01
-172.31.0.102 s02
-172.31.0.103 s03
-172.31.0.104 s04
-172.31.0.105 s05
-172.31.0.106 s06' | sudo tee --append /etc/hosts > /dev/null
+172.31.80.101 s01
+172.31.80.102 s02
+172.31.80.103 s03
+172.31.80.104 s04
+172.31.80.105 s05
+172.31.80.106 s06
+172.31.80.107 s07
+172.31.80.108 s08' | sudo tee --append /etc/hosts > /dev/null
 
 sudo chmod 700 /home/ubuntu/.ssh
 sudo chmod 600 /home/ubuntu/.ssh/id_rsa
@@ -191,7 +197,7 @@ sudo chown -R ubuntu /opt/spark-3.0.1-bin-hadoop2.7
 
 cd spark-3.0.1-bin-hadoop2.7
 
-cp conf/spark-env.sh.template conf/spark-env.sh  
+cp conf/spark-env.sh.template conf/spark-env.sh
 
 
 # spark configuration files
@@ -216,3 +222,5 @@ echo -e '$HADOOP_HOME/sbin/start-dfs.sh && $HADOOP_HOME/sbin/start-yarn.sh && $H
 echo '$SPARK_HOME/sbin/start-master.sh' > /home/ubuntu/spark-start-master.sh
 
 echo '$SPARK_HOME/sbin/start-slave.sh spark://s01:7077' > /home/ubuntu/spark-start-slave.sh
+
+cp app/Jars/graphframes-0.8.1-spark3.0-s_2.12.jar /opt/spark-3.0.1-bin-hadoop2.7/jars/graphframes-0.8.1-spark3.0-s_2.12.jar
