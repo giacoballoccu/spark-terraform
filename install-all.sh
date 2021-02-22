@@ -186,16 +186,16 @@ sudo chown -R ubuntu /opt/hadoop-2.7.7
 
 # spark installation
 cd /opt/
-sudo wget https://downloads.apache.org/spark/spark-3.0.1/spark-3.0.1-bin-hadoop2.7.tgz > /dev/null
-sudo tar -xvzf spark-3.0.1-bin-hadoop2.7.tgz > /dev/null
+sudo wget https://downloads.apache.org/spark/spark-3.0.2/spark-3.0.2-bin-hadoop2.7.tgz > /dev/null
+sudo tar -xvzf spark-3.0.2-bin-hadoop2.7.tgz > /dev/null
 
 echo '
-export SPARK_HOME=/opt/spark-3.0.1-bin-hadoop2.7
+export SPARK_HOME=/opt/spark-3.0.2-bin-hadoop2.7
 export PATH=$PATH:$SPARK_HOME/bin' | sudo tee --append /home/ubuntu/.bashrc > /dev/null
 
-sudo chown -R ubuntu /opt/spark-3.0.1-bin-hadoop2.7
+sudo chown -R ubuntu /opt/spark-3.0.2-bin-hadoop2.7
 
-cd spark-3.0.1-bin-hadoop2.7
+cd spark-3.0.2-bin-hadoop2.7
 
 cp conf/spark-env.sh.template conf/spark-env.sh
 
@@ -222,4 +222,3 @@ echo -e '$HADOOP_HOME/sbin/start-dfs.sh && $HADOOP_HOME/sbin/start-yarn.sh && $H
 echo '$SPARK_HOME/sbin/start-master.sh' > /home/ubuntu/spark-start-master.sh
 
 echo '$SPARK_HOME/sbin/start-slave.sh spark://s01:7077' > /home/ubuntu/spark-start-slave.sh
-
