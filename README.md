@@ -30,7 +30,7 @@ This project create an Hadoop and Spark cluster on Amazon AWS with Terraform
 
 ## Software version
 * Default AMI image: ami-0885b1f6bd170450c (Ubuntu 20.04, amd64, hvm-ssd)
-* Spark: 3.0.2
+* Spark: 2.4.7
 * Hadoop: 2.7.7
 * Python: last available (currently 3.8)
 * Java: openjdk 8u275 jdk
